@@ -13,6 +13,9 @@ services:
       - ./uploads:/home/app/uploads
     environment:
       NODE_ENV: production
+    networks:
+      default:
+        ipv4_address: 10.5.0.5
 
   postgres:
     container_name: barbers-pg
@@ -24,3 +27,13 @@ services:
       POSTGRES_PASSWORD: barbers
     ports:
       - "5425:5432"
+    networks:
+      default:
+        ipv4_address: 10.5.0.6
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16

@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     isActive: DataTypes.BOOLEAN,
     about: DataTypes.TEXT,
     phoneCode: DataTypes.STRING,
-    /*latitude: DataTypes.TEXT,
+    latitude: DataTypes.TEXT,
     longitude: DataTypes.TEXT,
-    address: DataTypes.TEXT*/
+    address: DataTypes.TEXT
   }, {
   });
 

@@ -1,3 +1,4 @@
+const path = require('path');
 const fastify = require('fastify')({
   logger: {
     prettyPrint: true,
@@ -16,7 +17,6 @@ const fastify = require('fastify')({
 
 global.__basedir = __dirname;
 
-const path = require('path');
 const AutoLoad = require('fastify-autoload');
 
 fastify.register(AutoLoad, {
@@ -28,6 +28,8 @@ fastify.register(AutoLoad, {
   dir: path.join(__dirname, 'hooks'),
   options: {}
 });
+
+
 
 const baseServicesFolder = path.join(__dirname, 'services').replace(/\\/g, '/');
 for (const folder of require('glob').sync(baseServicesFolder + '/**/'))

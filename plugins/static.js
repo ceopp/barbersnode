@@ -12,5 +12,10 @@ module.exports = fp(function (fastify, opts, next) {
         redirect: true,
         decorateReply: false
     });
+    fastify.register(require('fastify-static'), {
+        root: path.join(__basedir, 'admin'),
+        prefix: '/admin',
+        decorateReply: false
+    });
     next();
 });
