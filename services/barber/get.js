@@ -34,7 +34,7 @@ module.exports = async function (f, opts) {
                 { 'orderPlace': { [f.db.Op.eq]: null } }
             ];
         let _barbers = await Barber.findAll({
-            where: { [f.db.Op.and]: { isActive: { [f.db.Op.ne]: false }, ...and } },
+            // where: { [f.db.Op.and]: { isActive: { [f.db.Op.ne]: false }, ...and } },
             ...f.db.paginate({ page: page || 0, pageSize: pageSize || 100 }),
             include: [
                 {
@@ -43,7 +43,7 @@ module.exports = async function (f, opts) {
                 },
                 {
                     model: User, as: 'user',
-                    attributes: ['id', 'cityId', 'photo', 'name', 'phone'],
+                    attributes: ['id', 'cityId', 'photo', 'name', 'phone', 'latitude','longitude', 'address'],
                     where: cityAnd != [] ? cityAnd : null,
                     include: [
                         { model: City, as: 'city' },
