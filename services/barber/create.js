@@ -9,9 +9,9 @@ module.exports = async function (f, opts) {
                     about: { type: 'string' },
                     orderPlace: { type: 'array', items: { type: 'string' } },
                     portfolio: { type: 'array', items: { type: 'string' } },
-		    /*latitude: {type: 'string'},
+		    latitude: {type: 'string'},
 		    longitude: {type: 'string'},
-		    address: {type: 'string'}*/
+		    address: {type: 'string'}
                 }
             },
             security: [{ 'Authorization': [] }]
@@ -31,9 +31,9 @@ module.exports = async function (f, opts) {
                 portfolio,
                 about,
                 orderPlace,
-/*		latitude,
+		latitude,
 		longitude,
-		address*/
+		address
             });
             res.send(barber);
         } catch (e) {
