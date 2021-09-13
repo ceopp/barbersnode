@@ -17,6 +17,7 @@ module.exports = async function (f, opts) {
         },
         onRequest: f.auth,
     }, async (req, res) => {
+	console.log(req.user.id)
         let {
             name,
             birthday,
@@ -24,7 +25,7 @@ module.exports = async function (f, opts) {
             frequency,
             countryId,
             cityId, } = req.body;
-
+	
         req.user.assign({
             name,
             birthday,
@@ -34,6 +35,7 @@ module.exports = async function (f, opts) {
             cityId
         });
         await req.user.save();
+	
         res.send(req.user);
     });
 };
