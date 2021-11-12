@@ -11,7 +11,7 @@ module.exports = async function (f, opts) {
             },
             security: [{ 'Authorization': [] }]
         },
-        onRequest: [f.auth, f.isAdmin],
+        onRequest: [f.auth],
     }, async (req, res) => {
         const { title } = req.body;
         const service = await Service.create({

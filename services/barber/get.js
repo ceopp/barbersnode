@@ -43,7 +43,7 @@ module.exports = async function (f, opts) {
                 },
                 {
                     model: User, as: 'user',
-                    attributes: ['id', 'cityId', 'photo', 'name', 'phone'],
+                    attributes: ['id', 'cityId', 'photo', 'name', 'phone','cityName'],
                     where: cityAnd != [] ? cityAnd : null,
                     include: [
                         { model: City, as: 'city' },

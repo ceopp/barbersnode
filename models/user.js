@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING,
     phoneCode: DataTypes.STRING,
     frequency: DataTypes.STRING,
+    cityName: {
+      type: DataTypes.STRING,
+      defaultValue: 'Москва'
+    }
   }, {
   });
   User.associate = function (models) {
@@ -49,6 +53,8 @@ module.exports = (sequelize, DataTypes) => {
       id: { type: 'string' },
       isAdmin: { type: 'boolean', description: 'Является админом' },
       phone: { type: 'string', description: 'Phone' },
+      name: { type: 'string', description: 'Имя' },
+      cityName: { type: 'string', description: 'Город' },
     }
   };
   return User;
